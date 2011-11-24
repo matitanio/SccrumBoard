@@ -18,6 +18,9 @@ class BoardControllerTests extends ControllerUnitTestCase {
 		controller.params.boardName = boardName
 		controller.createBoard()
 		
+		//Esto da verde, pero si descomentas la la lienea en la accion createBoard rompe!! porque controller.response.contentAsString tiene el contenido
+		// del render de createBoard y no de la accion "Polisofia" que le echufe dinamicamente. Otra cosa que me paso es que hice un ABM pelotudo
+		// pero el controller no ve la nueva accions
 		
 		controller."${boardName}"()
 		String response = controller.response.contentAsString
